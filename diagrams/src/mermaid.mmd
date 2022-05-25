@@ -1,0 +1,16 @@
+graph RL
+subgraph High Level Topology
+E(Information on the topology)
+end
+subgraph Existing Resource Builders
+A(webapp) --mapping--- E
+C(servicebus) --mapping--- E
+D(storageAccount) --mapping--- E
+end
+subgraph IResources
+Z(Website) ---A
+V(AppInsights?) ---A
+X(Server Farm) ---A
+Y(Service Bus Namespace + Queue) ---C
+W(Storage Account) ---D
+end

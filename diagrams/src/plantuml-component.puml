@@ -1,0 +1,29 @@
+@startuml Project Structure
+
+!theme sketchy-outline
+
+package "Presentation" {
+  HTTP - [Controllers]
+  [DTOs]
+  [Telemetry]
+}
+
+package "Domain" {
+  [Domain models]
+  [Repository interfaces]
+  [Service interfaces]
+  [Usecases]
+}
+
+package "Infrastructure" {
+  [Repository implementation]
+  [Service implementation interfaces]
+  [Telemetry]
+}
+
+Presentation --> Domain
+Presentation --> Infrastructure
+
+note top of Presentation: This is the host process
+
+@enduml

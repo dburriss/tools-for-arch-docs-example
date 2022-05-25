@@ -1,0 +1,20 @@
+@startuml Overview_C4_Context_Diagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Current System Context
+
+Person(customer,"Customer", "Visits the website")
+System(ecomm, "Website", "Customer journey to get a customer a quote for improving the sustainability of their home")
+System(payments, "Payments", "Captures payments and integrates with providers")
+System(warehouse, "Warehousing", "Receives and processes orders")
+
+System_Ext(payment_provider, "Payment Provider", "Processes payment")
+
+Rel(customer, ecomm, "purchases items")
+Rel(ecomm, payments, "Send payment")
+Rel(payments, payment_provider, "Capture payment")
+Rel(ecomm, warehouse, "Reserve stock")
+Rel(payments, warehouse, "Release")
+
+
+@enduml
